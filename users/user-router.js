@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
     })
     .catch(error => res.send(error));
 });
-// GET localhost:5000/api/users tested in Postman
+// GET localhost:4000/api/users tested in Postman
 
 // gets a specific user
 router.get("/:id", (req, res) => {
@@ -31,7 +31,7 @@ router.get("/:id", (req, res) => {
       res.status(500).json({ message: "Failed to get user" });
     });
 });
-// GET localhost:5000/api/users/3 tested in Postman
+// GET localhost:4000/api/users/3 tested in Postman
 
 // add user
 router.post("/", (req, res) => {
@@ -45,7 +45,7 @@ router.post("/", (req, res) => {
       res.status(500).json({ message: "Failed to add new user." });
     });
 });
-// POST http://localhost:5000/api/users/ tested in Postman
+// POST http://localhost:4000/api/users/ tested in Postman
 
 // update User
 router.put("/:id", (req, res) => {
