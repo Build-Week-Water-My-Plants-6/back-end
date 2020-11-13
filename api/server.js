@@ -6,7 +6,7 @@ require("dotenv").config();
 const server = express();
 
 const authRouter = require("../auth/auth-router.js");
-const usersRouter = require("../users/users-router.js");
+const usersRouter = require("../users/user-router.js");
 const plantsRouter = require("../plants/plants-router.js");
 
 server.use(helmet());
@@ -14,8 +14,10 @@ server.use(express.json());
 server.use(cors());
 
 server.use("/api/auth", authRouter);
-server.use("/api/users", usersRouter);
+server.use("/api/user", usersRouter);
 server.use("/api/plants", plantsRouter);
+
+const db = require("../database/dbConfig.js");
 
 
 server.get("/", (req, res) => {

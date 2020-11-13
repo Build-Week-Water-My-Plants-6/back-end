@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const Users = require("./users-model.js");
+const Users = require("./user-model.js");
 
 const restricted = require("../auth/restricted-middleware.js");
 
@@ -24,7 +24,7 @@ router.get("/:id", restricted, (req, res) => {
       } else {
         res
           .status(404)
-          .json({ message: "Could not find user with gviven ID." });
+          .json({ message: "Could not find user with given ID." });
       }
     })
     .catch(error => {
