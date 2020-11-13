@@ -10,7 +10,10 @@ router.get("/", (req, res) => {
     .then(users => {
       res.json(users);
     })
-    .catch(error => res.send(error));
+    .catch(error => {
+console.log(error.message)
+res.send(error)
+    });
 });
 // GET localhost:4000/api/users tested in Postman
 
