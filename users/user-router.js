@@ -5,7 +5,7 @@ const Users = require("./user-model.js");
 const restricted = require("../auth/restricted-middleware.js");
 
 // gets a list of users
-router.get("/", restricted, (req, res) => {
+router.get("/", (req, res) => {
   Users.find()
     .then(users => {
       res.json(users);
@@ -15,7 +15,7 @@ router.get("/", restricted, (req, res) => {
 // GET localhost:5000/api/users tested in Postman
 
 // gets a specific user
-router.get("/:id", restricted, (req, res) => {
+router.get("/:id", (req, res) => {
   const { id } = req.params;
   Users.findById(id)
     .then(user => {
@@ -34,7 +34,7 @@ router.get("/:id", restricted, (req, res) => {
 // GET localhost:5000/api/users/3 tested in Postman
 
 // add user
-router.post("/", restricted, (req, res) => {
+router.post("/", (req, res) => {
   const userData = req.body;
 
   Users.add(userData)
@@ -48,7 +48,7 @@ router.post("/", restricted, (req, res) => {
 // POST http://localhost:5000/api/users/ tested in Postman
 
 // update User
-router.put("/:id", restricted, (req, res) => {
+router.put("/:id", (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -72,7 +72,7 @@ router.put("/:id", restricted, (req, res) => {
 });
 
 // remove user
-router.delete("/:id", restricted, (req, res) => {
+router.delete("/:id", (req, res) => {
   const { id } = req.params;
 
   Users.remove(id)
