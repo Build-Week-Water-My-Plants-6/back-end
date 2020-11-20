@@ -31,13 +31,13 @@ function findById(id) {
 }
 
 // add new user
-function add(users) {
-  return db("users")
-    .insert(users)
-    .then(ids => {
-      return findById(ids[0]);
-    });
-}
+// function add(users) {
+//   return db("users")
+//     .insert(users)
+//     .then(ids => {
+//       return findById(ids[0]);
+//     });
+// }
 
 // resolves to update user
 function update(changes, id) {

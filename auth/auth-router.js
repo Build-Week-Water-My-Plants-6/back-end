@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const env = require("dotenv");
 
 const Users = require("../users/user-model.js");
 
@@ -20,6 +21,7 @@ router.post("/register", (req, res) => {
       });
     })
     .catch(error => {
+      console.log(error)
       res.status(500).json(error);
     });
 });
@@ -64,7 +66,7 @@ function generateToken(user) {
   const options = {
     expiresIn: "1d"
   };
-  // verify signature -> a secret
+  // verify signature -> a secret, 'process.env.JWT_SECRET' IS HAVING ISSUES
   return jwt.sign(payload, process.env.JWT_SECRET, options);
 }
 
