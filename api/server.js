@@ -2,6 +2,7 @@ const express = require("express");
 const helmet = require("helmet");
 const cors = require("cors");
 require("dotenv").config();
+const db = require("../database/dbConfig.js");
 
 const server = express();
 
@@ -16,8 +17,6 @@ server.use(cors());
 server.use("/api/auth", authRouter);
 server.use("/api/user", usersRouter);
 server.use("/api/plants", plantsRouter);
-
-const db = require("../database/dbConfig.js");
 
 
 server.get("/", (req, res) => {

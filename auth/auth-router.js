@@ -65,7 +65,7 @@ function generateToken(user) {
   const options = {
     expiresIn: "1d"
   };
-  // verify signature -> a secret
+  // verify signature -> a secret, 'process.env.JWT_SECRET' IS HAVING ISSUES
   return jwt.sign(payload, "this is the secrete", options);
 }
 
